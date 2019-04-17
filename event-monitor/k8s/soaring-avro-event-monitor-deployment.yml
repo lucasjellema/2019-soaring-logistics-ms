@@ -1,0 +1,48 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: soaring-avro-event-monitor-deployment
+  namespace: soaring-clouds
+  labels:
+    k8s-app: soaring-avro-event-monitor-ms
+    version: v2
+spec:
+  template:
+    metadata:
+      labels:
+        k8s-app: soaring-avro-event-monitor-ms
+        version: v2
+    spec:
+     hostAliases:
+     - ip: "192.30.253.113"
+       hostnames:
+        - "github.com"
+     - ip: "104.16.17.35"
+       hostnames:
+        - "registry.npmjs.org"
+     containers:
+     - name: soaring-avro-event-monitor-ms
+       image: lucasjellema/soaring-avro-event-monitor:1.0.1
+       imagePullPolicy: Always
+       resources:
+         # keep request = limit to keep this container in guaranteed class
+         limits:
+           cpu: 100m
+         requests:
+           cpu: 100m
+       env:
+         - name: "KAFKA_AVRO_LOG_LEVEL"
+           value: "info"
+         - name: "ELASTIC_CONNECTOR"
+           value: "http://129.213.11.15/soaring/elastic"
+         - name: "SCHEMA_REGISTRY"
+           value: "http://130.61.35.61:8081"
+         - name: "KAFKA_HOST"
+           value: "130.61.35.61"
+         - name: "LOGISTICS_MS_API_ENDPOINT"
+           value: "http://129.213.11.15/soaring/logistics"
+
+       ports:
+       - containerPort: 8099
+         name: api
+         protocol: TCP
