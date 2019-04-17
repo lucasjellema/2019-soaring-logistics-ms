@@ -7,10 +7,10 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.frontend.rule.type: PathPrefixStrip
 spec:
-  rules:
+  rules:  
   - http:
       paths:
       - path: /soaring/elastic
         backend:
-          serviceName: es
+          serviceName: elasticsearch
           servicePort: serving
