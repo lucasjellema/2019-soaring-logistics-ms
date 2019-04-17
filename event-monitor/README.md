@@ -78,3 +78,10 @@ kubectl delete -f event-monitor/k8s/soaring-avro-event-monitor-deployment.yml
 kubectl apply -f event-monitor/k8s/soaring-avro-event-monitor-deployment.yml
 ```
 
+The successful deployment of the Event Monitor can be checked at the endpoint:
+
+<K8S Cluster/Loadbalancer IP>/soaring/avroeventmonitor/about
+or on Minikube
+<Minikube IP>:<port assigned to Traefik Ingress Controller>/soaring/avroeventmonitor/about (for example http://192.168.99.106:31839/soaring/avroeventmonitor/about)
+
+
