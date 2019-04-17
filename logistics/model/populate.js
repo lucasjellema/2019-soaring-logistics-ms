@@ -1,7 +1,8 @@
 // through API - not directly to database
 
 var request = require("request");
-var LOGISTICS_MS = "http://129.213.11.15/soaring/logistics"
+//var LOGISTICS_MS = "http://129.213.11.15/soaring/logistics"
+var LOGISTICS_MS = "http://192.168.99.106:31839/soaring/logistics"
 
 function createDrop() {
 var options = { method: 'POST',

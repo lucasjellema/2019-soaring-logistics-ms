@@ -38,12 +38,12 @@
     "cors": "^2.8.4",
     "elasticsearch": "^15.4.1",
     "express": "^4.16.2",
-    "kafka-node": "^2.2.0",
-    "nominatim-geocoder": "^0.1.4",
     "request": "^2.88.0",
-    "kafka-avro": "^1.2.0",
     "request-promise-native": "^1.0.7",
     "save": "^2.3.3",
+    "kafka-node": "^2.2.0",
+    "kafka-avro": "^1.2.0",
+    "nominatim-geocoder": "^0.1.4",
     "winston": "^2.4.3",
     "winston-papertrail": "^1.0.5"
   }

@@ -1,16 +1,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: elasticsearch
+  name: elasticsearch-data
   namespace: soaring-clouds
   labels:
-    service: elasticsearch
+    component: elasticsearch
+    role: data
 spec:
-  clusterIP: None
   ports:
   - port: 9200
     name: serving
   - port: 9300
-    name: node-to-node
+    name: transport
+  clusterIP: None
   selector:
-    service: elasticsearch
+    component: elasticsearch
+    role: data
